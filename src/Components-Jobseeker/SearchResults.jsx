@@ -6,7 +6,7 @@ import { Footer } from '../Components-LandingPage/Footer'
 import { useLocation } from 'react-router-dom'
 import { SearchBar } from './SearchBar'
 import { Header } from '../Components-LandingPage/Header'
-import { useJobs } from '../JobContext'
+import { useJobs } from '../Jobcontext'
 
 export const SearchResults = () => {
     const { jobs } = useJobs()

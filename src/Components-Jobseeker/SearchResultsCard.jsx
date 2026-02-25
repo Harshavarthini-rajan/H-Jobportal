@@ -7,7 +7,7 @@ import { formatPostedDate } from './OpportunitiesCard';
 import "./SearchResultsCard.css"
 import { useNavigate } from 'react-router-dom';
 import starIcon from '../assets/Star_icon.png'
-import { useJobs } from '../JobContext';
+import { useJobs } from '../Jobcontext';
 
 export function SearchResultsCard(props) {
     const { job } = props;

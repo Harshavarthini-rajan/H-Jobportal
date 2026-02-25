@@ -20,7 +20,7 @@ export const JobProvider = ({ children }) => {
 
     // Using Id to Toggle Menu in Notification Window
     const [activeMenuId, setActiveMenuId] = useState(null);
-
+    
     // Chats/messages between Employer and Jobseeker 1:1;
     const [chats, setChats] = useState([
         {
@@ -69,6 +69,19 @@ export const JobProvider = ({ children }) => {
 
     const isJobSaved = (jobId) => savedJobs.some((j) => j.id === jobId);
 
+    // Add job function
+    /* const addJobData = (newJob) => {
+        const jobWithId = { ...newJob, id: jobs.length > 0 ? Math.max(...jobs.map(j => j.id)) + 1 : 1,
+            postedDate: `Posted on ${getFormattedDate()}`
+        };
+        setJobs(prev => [...prev, jobWithId]);
+        addNotification(`New job posted: ${newJob.title} at ${newJob.company}`);
+    };  */
+    const addJob = (newJob) => {
+        setJobs((prevJobs) => [...prevJobs, newJob]);
+    };
+ 
+
     const applyForJob = (originalJob) => {
         const newAppliedJob = {
             ...originalJob,
@@ -102,7 +115,7 @@ export const JobProvider = ({ children }) => {
 
     return (
         <JobContext.Provider value={{
-            jobs, appliedJobs, setAppliedJobs, savedJobs, chats, setChats, setJobs,
+            jobs, setJobs, addJob, appliedJobs, setAppliedJobs, savedJobs, chats, setChats, setJobs,
             onlineStatus, setOnlineStatus, isJobSaved, isChatEnded, setIsChatEnded,
             setNotificationsData, addNotification, toggleSaveJob, applyForJob, notificationsData, showNotification, setShowNotification,
             activeMenuId,setActiveMenuId

@@ -19,7 +19,7 @@ import { MyProfile } from './Components-Jobseeker/MyProfile'
 import { JobsThroughCompany } from './Components-Jobseeker/JobsThroughCompany'
 import { AboutUs } from './Components-LandingPage/AboutUs'
 import { SearchResults } from './Components-Jobseeker/SearchResults'
-import { JobProvider } from './JobContext';
+import { JobProvider } from './Jobcontext'
 import { JobApplication } from './Components-Jobseeker/JobApplication'
 import { ApplicationStatusScreen } from './Components-Jobseeker/ApplicationStatusScreen'
 import { AppliedJobsOverview } from './Components-Jobseeker/AppliedJobsOverview'
@@ -47,8 +47,14 @@ import { FileUploadHelp } from './Components-Jobseeker/FileUploadHelp'
 import { EmployerDashboard } from './Components-Employer/EmployerDashboard'
 import { Messenger } from './Components-Jobseeker/Messenger'
 import { Chatbox } from './Components-Employer/Chatbox'
+import { FindTalent } from './Components-LandingPage/FindTalent'
 
 const router = createBrowserRouter([{
+  path: '/',
+  element: <Landingpage />,
+},
+  
+{
   path: '/Job-portal',
   element: <Landingpage />,
 },
@@ -231,6 +237,10 @@ const router = createBrowserRouter([{
 {
   path: '/Job-portal/Employer/Chat',
   element: <Chatbox/>
+},
+{
+  path: '/Job-portal/Employer/FindTalent',
+  element: <FindTalent/>
 },
 ])
 

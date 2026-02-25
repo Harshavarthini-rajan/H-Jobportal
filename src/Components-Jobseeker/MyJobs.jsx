@@ -4,7 +4,7 @@ import { Footer } from '../Components-LandingPage/Footer';
 import { SavedJobsCard } from './SavedJobsCard';
 import { AppliedJobCard } from './AppliedJobCard';
 import { Header } from '../Components-LandingPage/Header';
-import { useJobs } from '../JobContext';
+import { useJobs } from '../Jobcontext';
 
 export const MyJobs = () => {
     const { savedJobs, appliedJobs } = useJobs();
