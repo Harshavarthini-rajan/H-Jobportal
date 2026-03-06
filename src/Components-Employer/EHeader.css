@@ -16,11 +16,11 @@
     color: rgb(103, 134, 248);
 }
 
-.search{
+.E-Header-search{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px;
+    /* padding: 8px; */
     border-radius: 8px 12px;
     border-color:gray;
     border-style: solid;
@@ -29,14 +29,14 @@
 
 }
 
-.searchicon{
-    width: 20px;
-    margin-right: 10px;
+.E-searchicon{
+    width: 25px;
+    margin-left: 20px;
 }
 
-.input1{
+.input{
     width: 100%;
-    height: 5px;
+    height: 20px;
     outline: none;
     border: none;
     font-size: 15px;

@@ -10,7 +10,7 @@ import home_icon from '../assets/home_icon.png';
 import belldot from '../assets/header_bell_dot.png'
 import { AvatarMenu } from '../Components-Jobseeker/AvatarMenu';
 import { JNotification } from '../Components-Jobseeker/JNotification';
-import { useJobs } from '../Jobcontext';
+import { useJobs } from '../JobContext';
 
 
 export const Header = () => {

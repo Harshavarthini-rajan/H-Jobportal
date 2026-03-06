@@ -25,7 +25,7 @@ const BlogCategory = () => {
           <div style={{width:"80%", textAlign:"center",marginLeft:"80px"}} ><h1 className="main-title">Categories</h1></div>
         </div>
         <div className='cat-con'>
-          <div className='container'>
+          <div className='container2'>
           <div className='content'>
           <img src={blogcimg} alt="blog" width="300"/>
           <h3 className='card-title'>career</h3>

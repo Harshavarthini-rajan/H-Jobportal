@@ -12,7 +12,7 @@ import { useJobs } from '../JobContext';
 
 export const JobApplication = () => {
 
-  const {applyForJob,jobs}= useJobs();
+  const {applyForJob,jobs,appliedJobs}= useJobs();
   const navigate = useNavigate();
   const { id } = useParams();
   const fileInputRef = useRef(null);

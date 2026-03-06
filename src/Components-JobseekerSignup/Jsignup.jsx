@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import workTime from '../assets/WorkTime.png'
 import Google from '../assets/GOOG.png'
 import eye from '../assets/show_password.png'
 import eyeHide from '../assets/eye-hide.png'
 import './Jsignup.css'
+import { Alert } from 'bootstrap'
 
 export const Jsignup = () => {
   const [passwordShow, setPasswordShow] = useState(true)
-  const [confirmPasswordShow, setConfirmPasswordShow] = useState(true)
+  const [confirmPasswordShow, setConfirmPasswordShow] = useState(true);
+  const navigate= useNavigate()
 
   const togglePasswordView = () => {
     setPasswordShow((prev) => !prev)
@@ -38,6 +40,7 @@ export const Jsignup = () => {
     const regexofSpecialChar = /^(?=.*[!@#$%^&*]).+$/
     const regexofUserName = /^(?=[a-zA-Z])\S+$/
     const regexofMobile = /^\d{10}$/
+    const regexofLowercase = /^(?=.*[a-z]).+$/
 
     if (!formValues.username.trim()) {
       newErrors.username = "Username is required"
@@ -65,6 +68,8 @@ export const Jsignup = () => {
       newErrors.password = "Password must contain at least one number"
     } else if (!regexofSpecialChar.test(formValues.password)) {
       newErrors.password = "Password must contain at least one special character"
+    }else if (!regexofLowercase.test(formValues.password)) {
+      newErrors.password = "Password must contain at least one LowerCase letter"
     }
 
     if (!formValues.confirmpassword.trim()) {
@@ -85,7 +90,8 @@ export const Jsignup = () => {
     if (!validateForm()) {
       return false // stops form submit if errors
     }
-    console.log("Signed up successfully") // This Code is removed after backend integration
+    alert("Signed up successfully") // This Code is removed after backend integration
+    navigate('/Job-portal/jobseeker/login')
   }
 
   return (

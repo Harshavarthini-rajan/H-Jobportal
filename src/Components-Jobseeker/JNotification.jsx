@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import './JNotification.css'
 import bell from '../assets/header_bell.png'
 import bell_dot from '../assets/header_bell_dot.png'
-import { useJobs } from "../Jobcontext";
+import { useJobs } from "../JobContext";
 import { useNavigate } from "react-router-dom";
 
 

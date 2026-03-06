@@ -19,7 +19,7 @@ import { MyProfile } from './Components-Jobseeker/MyProfile'
 import { JobsThroughCompany } from './Components-Jobseeker/JobsThroughCompany'
 import { AboutUs } from './Components-LandingPage/AboutUs'
 import { SearchResults } from './Components-Jobseeker/SearchResults'
-import { JobProvider } from './Jobcontext'
+import { JobProvider } from './JobContext'
 import { JobApplication } from './Components-Jobseeker/JobApplication'
 import { ApplicationStatusScreen } from './Components-Jobseeker/ApplicationStatusScreen'
 import { AppliedJobsOverview } from './Components-Jobseeker/AppliedJobsOverview'
@@ -45,15 +45,21 @@ import { LoginIssuesHelp } from './Components-Jobseeker/LoginIssuesHelp'
 import { PageErrorsHelp } from './Components-Jobseeker/PageErrorsHelp'
 import { FileUploadHelp } from './Components-Jobseeker/FileUploadHelp'
 import { EmployerDashboard } from './Components-Employer/EmployerDashboard'
-import { Messenger } from './Components-Jobseeker/Messenger'
-import { Chatbox } from './Components-Employer/Chatbox'
-import { FindTalent } from './Components-LandingPage/FindTalent'
+import { JMessenger } from './Components-Jobseeker/JMessenger'
+import { EMessenger } from './Components-Employer/EMessenger'
+import {FindTalent} from './Components-Employer/FindTalent'
+import { AboutYourCompany } from './Components-Employer/AboutYourCompany'
+import { CompanyVerify } from './Components-Employer/CompanyVerify'
+import { PostJobForm } from './Components-Employer/PostJobForm'
+import { PostJobPreview } from './Components-Employer/PostJobPreview'
+import { PostedJobs } from './Components-Employer/PostedJobs'
+import { EditJob } from './Components-Employer/EditJob'
+import { JsProfileOverview } from './Components-Employer/JsProfileOverview'
 
 const router = createBrowserRouter([{
   path: '/',
   element: <Landingpage />,
-},
-  
+}, 
 {
   path: '/Job-portal',
   element: <Landingpage />,
@@ -112,35 +118,35 @@ const router = createBrowserRouter([{
 },
 {
   path: '/Job-portal/jobseeker/myprofile',
-  element: <MyProfile />,
+  element: <MyProfile />
 },
 {
   path: '/Job-portal/jobseeker/aboutus',
-  element: <AboutUs />,
+  element: <AboutUs />
 },
 {
   path: '/Job-portal/jobseeker/companies/:companyId',
-  element: <JobsThroughCompany />,
+  element: <JobsThroughCompany />
 },
 {
   path: '/Job-portal/jobseeker/jobapplication/:id',
-  element: <JobApplication />,
+  element: <JobApplication />
 },
 {
   path: '/Job-portal/jobseeker/searchresults',
-  element: <SearchResults />,
+  element: <SearchResults />
 },
 {
   path: '/Job-portal/jobseeker/submitted/:id',
-  element: <ApplicationStatusScreen />,
+  element: <ApplicationStatusScreen />
 },
 {
   path: '/Job-portal/jobseeker/appliedjobsoverview/:id',
-  element: <AppliedJobsOverview />,
+  element: <AppliedJobsOverview />
 },
 {
   path: '/Job-portal/jobseeker/withdrawn',
-  element: <Revoked />,
+  element: <Revoked />
 },
 {
   path: '/Job-portal/jobseeker/Settings',
@@ -148,7 +154,7 @@ const router = createBrowserRouter([{
 },
 {
   path: '/Job-portal/jobseeker/Contact_Us',
-  element: < ContactUs/>
+  element: <ContactUs/>
 },
 {
   path: '/Job-portal/jobseeker/FAQ',
@@ -156,7 +162,7 @@ const router = createBrowserRouter([{
 },
 {
   path: '/Job-portal/jobseeker/Blogs',
-  element: < Blogpage/>
+  element: <Blogpage/>
 },
 {
   path: '/Job-portal/jobseeker/Blogs/Category',
@@ -176,71 +182,103 @@ const router = createBrowserRouter([{
 },
 {
   path: '/Job-portal/jobseeker/help-center/help-FAQs',
-  element: <FAQ />,
+  element: <FAQ />
 },
 {
   path:'/Job-portal/jobseeker/help-center/live-chat',
-  element: <LiveChat />,
+  element: <LiveChat />
 },
 {
   path:'/Job-portal/jobseeker/help-center/profile-creation-help',
-  element: <ProfileCreationHelp />,
+  element: <ProfileCreationHelp />
 },
 {
   path:'/Job-portal/jobseeker/help-center/resume-upload-help',
-  element: <ResumeUploadHelp />,
+  element: <ResumeUploadHelp />
 },
 {
   path:'/Job-portal/jobseeker/help-center/job-apply-help',
-  element: <JobApplyIssuesHelp />,
+  element: <JobApplyIssuesHelp />
 },
 {
   path:'/Job-portal/jobseeker/help-center/interview-scheduling-help',
-  element: <InterviewSchedulingHelp />,
+  element: <InterviewSchedulingHelp />
 },
 {
   path:'/Job-portal/jobseeker/help-center/job-posting-help',
-  element: <JobPostingHelp />,
+  element: <JobPostingHelp />
 },
 {
   path:'/Job-portal/jobseeker/help-center/candidate-search-help',
-  element: <CandidateSearchHelp />,
+  element: <CandidateSearchHelp />
 },
 {
   path:'/Job-portal/jobseeker/help-center/subscription-issue-help',
-  element: <SubscriptionIssuesHelp />,
+  element: <SubscriptionIssuesHelp />
 },
 {
   path:'/Job-portal/jobseeker/help-center/invoice-payment-help',
-  element: <InvoicePaymentHelp />,
+  element: <InvoicePaymentHelp />
 },
 {
   path:'/Job-portal/jobseeker/help-center/login-issue-help',
-  element: <LoginIssuesHelp />,
+  element: <LoginIssuesHelp />
 },
 {
   path:'/Job-portal/jobseeker/help-center/page-error-help',
-  element: <PageErrorsHelp />,
+  element: <PageErrorsHelp />
 },
 {
   path:'/Job-portal/jobseeker/help-center/file-upload-help',
-  element: <FileUploadHelp />,
+  element: <FileUploadHelp />
 },
 {
   path: '/Job-portal/Employer/Dashboard',
   element: <EmployerDashboard/>
 },
 {
+  path: '/Job-portal/Employer/about-your-company',
+  element: <AboutYourCompany/>
+},
+{
+  path: '/Job-portal/Employer/about-your-company/company-verification',
+  element: <CompanyVerify />
+},
+{
+  path: '/Job-portal/Employer/PostJob',
+  element: <PostJobForm />
+},
+{
+  path: '/Job-portal/Employer/PostJobpreview',
+  element: <PostJobPreview />
+},
+{
+  path: '/Job-portal/Employer/Postedjobs',
+  element: <PostedJobs />
+},
+{
+  path: '/Job-portal/Employer/EditJob',
+  element: <EditJob />
+},
+{
   path: '/Job-portal/jobseeker/Chat',
-  element: <Messenger/>
+  element: <JMessenger/>
 },
 {
   path: '/Job-portal/Employer/Chat',
-  element: <Chatbox/>
+  element: <EMessenger/>
 },
 {
   path: '/Job-portal/Employer/FindTalent',
   element: <FindTalent/>
+},
+{
+  path: '/Job-portal/Employer/FindTalent/ProfileOverview/:id',
+  element: <JsProfileOverview/>
+},
+{
+  path: '/Job-portal/employer-chat/:id',
+  element: <EMessenger/>
 },
 ])
 

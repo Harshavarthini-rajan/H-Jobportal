@@ -25,7 +25,7 @@ export const TechnologyBlog = () => {
 
       
         <div className='cat-con'>  
-        <div className='container'>
+        <div className='container2'>
        
         <div className='content'>
         <img src={blogimg} alt="blog" width="300"/>  
@@ -59,7 +59,7 @@ export const TechnologyBlog = () => {
         </div>
         </div>
         <div className='cat-con'>  
-        <div className='container'>
+        <div className='container2'>
        
         <div className='content'>
         <img src={blogcimg} alt="blog" width="300"/>  
@@ -94,7 +94,7 @@ export const TechnologyBlog = () => {
         </div>
         </div>
         <div className='cat-con'>  
-        <div className='container'>
+        <div className='container2'>
        
         <div className='content'>
         <img src={bloggccimg} alt="blog" width="300"/>  
@@ -128,7 +128,7 @@ export const TechnologyBlog = () => {
         </div>
         </div>
         <div className='cat-con'>  
-        <div className='container'>
+        <div className='container2'>
        
         <div className='content'>
         <img src={blogimg} alt="blog" width="300"/>  

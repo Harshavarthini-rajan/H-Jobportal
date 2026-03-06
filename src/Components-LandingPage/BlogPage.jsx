@@ -68,7 +68,7 @@ export const Blogpage = () => {
 
       {/* Featured Section */}
       <div className='cat-con'>
-        <div className='container'>
+        <div className='container2'>
           {featuredBlogs.map((blog, index) => (
             <BlogCard key={index} {...blog} />
           ))}
@@ -77,11 +77,11 @@ export const Blogpage = () => {
 
       {/* Categories Section */}
       <div className='cat-con'>
-        <div className='categories'>
+        <div className='categories2'>
           <h1>Categories</h1>
           <button onClick={() => navigate('/Job-portal/jobseeker/Blogs/Category')} className='view-all'>viewall</button>
         </div>
-        <div className='container'>
+        <div className='container2'>
           {categories.map((cat, index) => (
             <BlogCard key={index} {...cat} isCategory={true} />
           ))}
@@ -90,11 +90,11 @@ export const Blogpage = () => {
 
       {/* Technology Blogs Section */}
       <div className='cat-con'>
-        <div className='categories'>
+        <div className='categories2'>
           <h1>Technology Blogs</h1>
           <button onClick={() => navigate('/Job-portal/jobseeker/Blogs/Technology')} className='view-all'>viewall</button>
         </div>
-        <div className='container'>
+        <div className='container2'>
           {techBlogs.map((blog, index) => (
             <BlogCard key={index} {...blog} />
           ))}
