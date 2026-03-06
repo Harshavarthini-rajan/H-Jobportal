@@ -15,8 +15,13 @@ export const JNotification = ({  }) => {
     // const [notifications, setNotifications] = useState(notificationsData);
     const navigate = useNavigate();
     const containerRef = useRef(null);
+    const CurrentUser = 1;
 
-    const newNotificationsCount = notificationsData.filter(n => !n.isRead).length;
+    const myPersonalNotifs = notificationsData.filter(n => 
+        n.targetId === CurrentUser || n.targetId === undefined || n.targetId === null
+    );
+
+    const newNotificationsCount = myPersonalNotifs.filter(n => !n.isRead).length;
 
     // Toggle 3-dot menu
     const toggleMenu = (id, event) => {
@@ -101,7 +106,7 @@ export const JNotification = ({  }) => {
             <div className="notifications-subheader">
                 <div>
                     <span>Stay Up to Date</span>
-                    {newNotificationsCount > 0 && (
+                    {myPersonalNotifs > 0 && (
                         <span className="new-notifications-count">
                             {newNotificationsCount} New Notifications
                         </span>
@@ -115,7 +120,7 @@ export const JNotification = ({  }) => {
 
             {/* NOTIFICATION LIST */}
             <div className="notifications-list">
-                {notificationsData.map((notification) => (
+                {myPersonalNotifs.map((notification) => (
                     <div
                         
                         key={notification.id}
@@ -164,7 +169,7 @@ export const JNotification = ({  }) => {
                     </div>
                 ))}
 
-                {notificationsData.length === 0 && (
+                {myPersonalNotifs.length === 0 && (
                     <p style={{ padding: "20px", textAlign: "center", color: "#777" }}>
                         No notifications for you
                     </p>

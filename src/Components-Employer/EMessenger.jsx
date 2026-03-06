@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Chatbox.css";
 import { useJobs } from "../JobContext";
+<<<<<<< HEAD
  
  
 //***EMessenger//
@@ -25,10 +26,37 @@ export const EMessenger = () => {
  
   const activeUser = Alluser.find(u => parseInt(u.id) === selectedId);
  
+=======
+
+
+//***EMessenger//
+
+export const EMessenger = () => {
+
+  const { chats, setChats, isChatEnded, setIsChatEnded, Alluser, activeSidebarUsers, addNotification } = useJobs(); //From JobContext
+
+  const [input, setInput] = useState("");
+
+  const [selectedId, setSelectedId] = useState(null);
+
+  const scrollRef = useRef(null);
+
+  // Sidebar filter logic (Neenga anupuna adhae logic)
+  const sidebarDisplayUsers = Alluser.filter(user => 
+    activeSidebarUsers.includes(parseInt(user.id))
+  );
+
+  // Active chat and user details
+  const activeChat = chats.find(c => parseInt(c.id) === selectedId);
+
+  const activeUser = Alluser.find(u => parseInt(u.id) === selectedId);
+
+>>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
   // Auto scroll logic
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [activeChat?.messages]);
+<<<<<<< HEAD
  
   const handleSend = (e) => {
     e.preventDefault();
@@ -52,6 +80,31 @@ export const EMessenger = () => {
     setInput("");
   };
  
+=======
+
+  const handleSend = (e) => {
+    e.preventDefault();
+    if (!input.trim() || isChatEnded || !selectedId) return; 
+
+    const employerReply = {
+      id: Date.now(),
+      text: input,
+      sender: "employer", 
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    };
+
+    setChats(prev => prev.map(chat => 
+      chat.id === selectedId ? { ...chat, messages: [...chat.messages, employerReply] } : chat
+    ));
+
+    if (addNotification) {
+      addNotification(`Employer Sent a Message: ${input}`,selectedId);
+    }
+
+    setInput("");
+  };
+
+>>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
   return (
     <>
       <div className="messages-container">
@@ -63,8 +116,13 @@ export const EMessenger = () => {
                     </div>
                     {sidebarDisplayUsers.length > 0 ? (
                       sidebarDisplayUsers.map(user => (
+<<<<<<< HEAD
                         <div
                           key={user.id}
+=======
+                        <div 
+                          key={user.id} 
+>>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
                           className={`sidebar-item ${selectedId === parseInt(user.id) ? 'active' : ''}`}
                           onClick={() => setSelectedId(parseInt(user.id))}
                         >
@@ -79,20 +137,32 @@ export const EMessenger = () => {
                     )}
                 </div>
             </div>
+<<<<<<< HEAD
            
+=======
+            
+>>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
             <div className="web-main-chat">
                 {selectedId ? (
                   <>
                     <header className="web-chat-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         <strong>{activeUser?.profile?.fullName}</strong>
+<<<<<<< HEAD
                         <button
+=======
+                        <button 
+>>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
                           onClick={() => setIsChatEnded(!isChatEnded)}
                           className={ isChatEnded ? "E-Start-Convo-Button" : "E-End-Convo-Button"}
                         >
                           {isChatEnded ? "RESTART" : "END CHAT"}
                         </button>
                     </header>
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
                     <div className="web-chat-window" ref={scrollRef}>
                       {activeChat?.messages?.map((m) => (
                         <div key={m.id} className="web-msg-row">
@@ -103,11 +173,19 @@ export const EMessenger = () => {
                       ))}
                       {isChatEnded && <div className="chat-end-label">--- Conversation Ended ---</div>}
                     </div>
+<<<<<<< HEAD
  
                     <form className="web-input-bar" onSubmit={handleSend}>
                       <input
                         className="web-text-input"
                         value={input}
+=======
+
+                    <form className="web-input-bar" onSubmit={handleSend}>
+                      <input 
+                        className="web-text-input" 
+                        value={input} 
+>>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
                         onChange={(e) => setInput(e.target.value)}
                         disabled={isChatEnded}
                         placeholder="Type a message..."
@@ -126,5 +204,9 @@ export const EMessenger = () => {
       </div>
     </>
   );
+<<<<<<< HEAD
 };
  
+=======
+};
+>>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb

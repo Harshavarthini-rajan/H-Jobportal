@@ -28,7 +28,7 @@ import { Settings } from './Components-Jobseeker/Settings'
 import { Blogpage } from './Components-LandingPage/BlogPage'
 import BlogCategory from './Components-LandingPage/BlogCategory'
 import { TechnologyBlog } from './Components-LandingPage/TechnologyBlog'
-import { ContactUs } from './Components-LandingPage/Contactus'
+import { ContactUs } from './Components-LandingPage/ContactUs'
 import { FAQ } from './Components-LandingPage/FAQ'
 import { HelpCenter } from './Components-Jobseeker/HelpCenter'
 import { RaiseTicket } from './Components-Jobseeker/RaiseTicket'
@@ -54,6 +54,11 @@ import { PostJobForm } from './Components-Employer/PostJobForm'
 import { PostJobPreview } from './Components-Employer/PostJobPreview'
 import { PostedJobs } from './Components-Employer/PostedJobs'
 import { EditJob } from './Components-Employer/EditJob'
+<<<<<<< HEAD
+=======
+import FindTalent2 from './Components-Employer/Findtalent2'
+import { ProfileCard } from './Components-Employer/ProfileCard'
+>>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 import { JsProfileOverview } from './Components-Employer/JsProfileOverview'
 
 const router = createBrowserRouter([{
@@ -265,7 +270,15 @@ const router = createBrowserRouter([{
   element: <JMessenger/>
 },
 {
+<<<<<<< HEAD
   path: '/Job-portal/Employer/Chat',
+=======
+  path: '/Job-portal/employer-chat/:id',
+  element: <EMessenger/>
+},
+{
+  path: '/Job-portal/employer/chat',
+>>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
   element: <EMessenger/>
 },
 {
@@ -275,11 +288,16 @@ const router = createBrowserRouter([{
 {
   path: '/Job-portal/Employer/FindTalent/ProfileOverview/:id',
   element: <JsProfileOverview/>
+<<<<<<< HEAD
 },
 {
   path: '/Job-portal/employer-chat/:id',
   element: <EMessenger/>
 },
+=======
+}
+
+>>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 ])
 
 function App() {

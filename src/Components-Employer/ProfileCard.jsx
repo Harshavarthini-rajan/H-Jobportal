@@ -1,13 +1,23 @@
 import React from 'react';
 import './ProfileCard.css'; 
+<<<<<<< HEAD
 import call from '../assets/Employer/User.png'
 import Mail from '../assets/Employer/User.png'
 import Location from '../assets/Employer/User.png'
+=======
+import call from '../assets/Employer/Call.png'
+import Mail from '../assets/Employer/Email.png'
+import Location from '../assets/Employer/Location.png'
+>>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 import { useNavigate } from 'react-router-dom';
 
 export const ProfileCard = ({ user, showActions = false }) => {
   const navigate=useNavigate();
   if (!user) return null;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
   
   const fullName = user.profile?.fullName || "";
   const nameArray = fullName.trim().split(" ");
@@ -67,3 +77,7 @@ export const ProfileCard = ({ user, showActions = false }) => {
     </div>
   );
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
