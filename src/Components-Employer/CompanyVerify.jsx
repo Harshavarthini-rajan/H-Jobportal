@@ -19,9 +19,47 @@ export const CompanyVerify = () => {
     incorporationCertificate: null,
   });
 
-  // Handle all inputs
+ 
+  const [errors, setErrors] = useState({});
+
+ 
+  const validateForm = () => {
+    let newErrors = {};
+
+    if (!formData.legalName.trim()) newErrors.legalName = "Legal name is required";
+    if (!formData.registrationNumber.trim()) newErrors.registrationNumber = "Registration number is required";
+    if (!formData.taxId.trim()) newErrors.taxId = "Tax/GST ID is required";
+    if (!formData.websiteUrl.trim()) newErrors.websiteUrl = "Website URL is required";
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.officialEmail) {
+      newErrors.officialEmail = "Official email is required";
+    } else if (!emailRegex.test(formData.officialEmail)) {
+      newErrors.officialEmail = "Invalid email format";
+    }
+
+    const phoneRegex = /^[6-9]\d{9}$/;
+    if (!formData.phoneNumber) {
+      newErrors.phoneNumber = "Phone number is required";
+    } else if (!phoneRegex.test(formData.phoneNumber)) {
+      newErrors.phoneNumber = "Number must start with 6, 7, 8, or 9 and be 10 digits";
+    }
+
+    if (!formData.incorporationCertificate) {
+      newErrors.incorporationCertificate = "Incorporation Certificate is required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  
   const handleChange = (e) => {
     const { name, value, files } = e.target;
+
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: null });
+    }
 
     if (files) {
       const file = files[0];
@@ -37,10 +75,20 @@ export const CompanyVerify = () => {
         [name]: file,
       });
     } else {
-      setFormData({
-        ...formData,
-        [name]: value,
-      });
+      if (name === "phoneNumber") {
+        const onlyNums = value.replace(/[^0-9]/g, "");
+        if (onlyNums.length <= 10) {
+          setFormData({
+            ...formData,
+            [name]: onlyNums,
+          });
+        }
+      } else {
+        setFormData({
+          ...formData,
+          [name]: value,
+        });
+      }
     }
   };
 
@@ -48,18 +96,16 @@ export const CompanyVerify = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formData.incorporationCertificate) {
-      alert("Company Incorporation Certificate is required!");
-      return;
+    if (validateForm()) {
+      console.log("Verification Data Ready:", formData);
+      navigate('/Job-portal/Employer/Dashboard', { state: { fromVerify: true } });
+    } else {
+      console.log("Validation failed", errors);
     }
-
-    console.log("Verification Data Ready:", formData);
-
-    navigate('/Job-portal/Employer/Dashboard', { state: { fromVerify: true } });
   };
 
   return (
-    <div className="verify-page">
+    <>
       <EHeader />
 
       <div className="company-verify-container">
@@ -72,11 +118,12 @@ export const CompanyVerify = () => {
             <input
               type="text"
               name="legalName"
+              className={errors.legalName ? "error-border" : ""}
               placeholder="e.g., India"
               value={formData.legalName}
               onChange={handleChange}
-              required
             />
+            {errors.legalName && <span className="error-msg">{errors.legalName}</span>}
           </div>
 
           <div className="company-verify-form-group">
@@ -84,10 +131,11 @@ export const CompanyVerify = () => {
             <input
               type="text"
               name="registrationNumber"
+              className={errors.registrationNumber ? "error-border" : ""}
               value={formData.registrationNumber}
               onChange={handleChange}
-              required
             />
+            {errors.registrationNumber && <span className="error-msg">{errors.registrationNumber}</span>}
           </div>
 
           <div className="company-verify-form-group">
@@ -95,11 +143,12 @@ export const CompanyVerify = () => {
             <input
               type="text"
               name="taxId"
-              placeholder="e.g., 9145******"
+              className={errors.taxId ? "error-border" : ""}
+              placeholder="e.g., GB123456789 or 27AAAAA0000A1Z5"
               value={formData.taxId}
               onChange={handleChange}
-              required
             />
+            {errors.taxId && <span className="error-msg">{errors.taxId}</span>}
           </div>
 
           <div className="company-verify-form-group">
@@ -107,11 +156,12 @@ export const CompanyVerify = () => {
             <input
               type="text"
               name="websiteUrl"
+              className={errors.websiteUrl ? "error-border" : ""}
               placeholder="e.g., https://example.com"
               value={formData.websiteUrl}
               onChange={handleChange}
-              required
             />
+            {errors.websiteUrl && <span className="error-msg">{errors.websiteUrl}</span>}
           </div>
 
           <div className="company-verify-form-group">
@@ -120,15 +170,13 @@ export const CompanyVerify = () => {
               <input
                 type="email"
                 name="officialEmail"
+                className={errors.officialEmail ? "error-border" : ""}
                 placeholder="e.g., hr@example.com"
                 value={formData.officialEmail}
                 onChange={handleChange}
-                required
               />
-              <button type="button" className="company-small-verify-btn">
-                verify
-              </button>
             </div>
+            {errors.officialEmail && <span className="error-msg">{errors.officialEmail}</span>}
           </div>
 
           <div className="company-verify-form-group">
@@ -136,22 +184,21 @@ export const CompanyVerify = () => {
             <div className="company-verify-input-with-btn">
               <input
                 type="text"
+                inputMode="numeric"
                 name="phoneNumber"
-                placeholder="e.g., India"
+                className={errors.phoneNumber ? "error-border" : ""}
+                placeholder="e.g., 9145******"
                 value={formData.phoneNumber}
                 onChange={handleChange}
-                required
               />
-              <button type="button" className="company-small-verify-btn">
-                verify
-              </button>
             </div>
+            {errors.phoneNumber && <span className="error-msg">{errors.phoneNumber}</span>}
           </div>
 
           <div className="company-verify-form-group">
             <label>Company Incorporation Certificate</label>
 
-            <div className="company-verify-file-upload-box">
+            <div className={`company-verify-file-upload-box ${errors.incorporationCertificate ? "error-border" : ""}`}>
 
               <input
                 type="file"
@@ -164,14 +211,12 @@ export const CompanyVerify = () => {
 
               {!formData.incorporationCertificate && (
                 <label htmlFor="pdfUpload" className="company-verify-upload-placeholder">
-                  <p>Click to Upload File</p>
-
+                  <p>Click to Upload File (PDF only)</p>
                 </label>
               )}
 
               {formData.incorporationCertificate && (
                 <div className="company-verify-file-preview">
-
                   <label htmlFor="pdfUpload" className="company-verify-file-left clickable-area">
                     <img src={fileIcon} alt="file" />
                     <div>
@@ -181,12 +226,10 @@ export const CompanyVerify = () => {
                       </span>
                     </div>
                   </label>
-
                 </div>
               )}
-
-
             </div>
+            {errors.incorporationCertificate && <span className="error-msg">{errors.incorporationCertificate}</span>}
           </div>
 
 
@@ -200,6 +243,6 @@ export const CompanyVerify = () => {
       </div>
 
       <Footer />
-    </div>
+    </>
   );
 };

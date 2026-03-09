@@ -30,7 +30,27 @@ export const EmployerDashboard = () => {
 
     const navigate = useNavigate();
 
-    const { jobs, chats } = useJobs();
+    const { jobs, chats, Alluser } = useJobs();
+    // ADD THIS BELOW YOUR EXISTING STATES (after const { jobs, chats, Alluser } = useJobs();)
+
+    const getJobStats = (jobId) => {
+
+    const applicants = Alluser.filter(user =>
+        user.appliedJobs?.some(j => j.id === jobId)
+    );
+
+    const getCount = (status) =>
+        applicants.filter(user =>
+            user.appliedJobs?.find(j => j.id === jobId)?.status === status
+        ).length;
+
+    return {
+        applicants: applicants.length,
+        reviewed: getCount("Recruiter Review"),
+        shortlisted: getCount("Shortlisted"),
+        scheduled: getCount("Interview Called")
+    };
+};
     const [activeMenu, setActiveMenu] = useState(null);
     const employer = chats.find(chat => chat.role === "employer");
     const employerName = employer ? employer.name : "Employer"; // Default "Employer" fallback
@@ -39,6 +59,33 @@ export const EmployerDashboard = () => {
     const [activetab, setActiveTab] = useState('Dashboard');
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [selectedJob, setSelectedJob] = useState(null);
+    // Dashboard Counts
+
+    // Active Jobs
+    const activeJobsCount = jobs.length;
+
+    // Total Applicants
+    const totalApplicants = Alluser.reduce((total, user) => {
+        return total + (user.appliedJobs?.length || 0);
+    }, 0);
+
+    // Shortlisted
+    const shortlistedCount = Alluser.reduce((total, user) => {
+    const shortlisted = user.appliedJobs?.filter(
+        job => job.status === "Shortlisted"
+    ).length || 0;
+
+    return total + shortlisted;
+    }, 0);
+
+    // Interview Scheduled
+    const interviewCount = Alluser.reduce((total, user) => {
+        const interviews = user.appliedJobs?.filter(
+        job => job.status === "Interview Called"
+    ).length || 0;
+
+    return total + interviews;
+    }, 0);
 
     const toggleMenu = (id) => {
         setActiveMenu(activeMenu === id ? null : id);
@@ -208,23 +255,35 @@ export const EmployerDashboard = () => {
                                         <h2 style={{ marginLeft: "40px" }}>OverView</h2>
                                         <div className='EDashB-Application-Counts'>
                                             <div className='E-DashB-No-Counts'>
-                                                <div><img src={ActiveJobs} width={40} alt="" /></div>
-                                                <div><p>0</p><p className='E-job-status'>Active Jobs</p></div>
+                                                <div><img src={ActiveJobs} width={40} alt="" />
+                                                </div>
+                                                <div><p>{activeJobsCount}</p>
+                                                <p className='E-job-status'>Active Jobs</p>
+                                                </div>
+                                                </div>
+                                                <div className='E-DashB-No-Counts'>
+                                                    <div><img src={TotalAPP} width={40} alt="" /></div>
+                                                    <div>
+                                                        <p>{totalApplicants}</p>
+                                                        <p className='E-job-status'>Total Applicants</p>
+                                                        </div>
+                                                    </div>
+                                                        <div className='E-DashB-No-Counts'>
+                                                            <div><img src={Shortlist} width={40} alt="" /></div>
+                                                            <div>
+                                                                <p>{shortlistedCount}</p>
+                                                                <p className='E-job-status'>ShortListed</p>
+                                                            </div>
+                                                            </div>
+                                                                <div className='E-DashB-No-Counts'>
+                                                                    <div><img src={InterviewS} width={40} alt="" /></div>
+                                                                    <div>
+                                                                        <p>{interviewCount}</p>
+                                                                        <p className='E-job-status'>Interview Schedules</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
                                             </div>
-                                            <div className='E-DashB-No-Counts'>
-                                                <div><img src={TotalAPP} width={40} alt="" /></div>
-                                                <div><p>0</p><p className='E-job-status'>Total Applicants</p></div>
-                                            </div>
-                                            <div className='E-DashB-No-Counts'>
-                                                <div><img src={Shortlist} width={40} alt="" /></div>
-                                                <div><p>0</p><p className='E-job-status'>ShortListed</p></div>
-                                            </div>
-                                            <div className='E-DashB-No-Counts'>
-                                                <div><img src={InterviewS} width={40} alt="" /></div>
-                                                <div><p>0</p><p className='E-job-status'>Interview Schedules</p></div>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                     {/* Recently posted jobs */}
 
@@ -241,40 +300,44 @@ export const EmployerDashboard = () => {
                                             </div>
 
                                             {jobs.length > 0 ? (
-                                                [...jobs].slice(0, 5).map((job) => (
+                                                [...jobs].slice(0, 5).map((job) => {
+                                                    const stats = getJobStats(job.id);
+                                                    return (
                                                     <div key={job.id} className="dashboard-job-row">
                                                         <div className="dashboard-job-info">
                                                             <strong>{job.jobTitle || job.title}</strong>
                                                             <small>Created on: {job.postedDate || job.posted}</small>
                                                         </div>
-                                                        <span className="count-badge">{job.applicants || 0}</span>
-                                                        <span className="count-badge">{job.reviewed || 0}</span>
-                                                        <span className="count-badge">{job.shortlisted || 0}</span>
-                                                        <span className="count-badge">{job.scheduled || 0}</span>
+                                                        <span className="count-badge">{stats.applicants}</span>
+                                                        <span className="count-badge">{stats.reviewed}</span>
+                                                        <span className="count-badge">{stats.shortlisted}</span>
+                                                        <span className="count-badge">{stats.scheduled}</span>
+
                                                         <div className="dashboard-job-actions">
                                                             <button
-                                                                className="view-app-link"
-                                                                onClick={() => {
-                                                                    setSelectedJob(job);
-                                                                    setActiveTab('ViewApplicants');
+                                                                className="view-app-link"onClick={() => {setSelectedJob(job);
+                                                                setActiveTab('ViewApplicants');
                                                                 }}
                                                             >
                                                                 View applicants
                                                             </button>
-
+                                                            
                                                             <div className="menu-dots-icon">
                                                                 <span className="dots-icon" onClick={() => toggleMenu(job.id)}>⋮</span>
                                                                 {activeMenu === job.id && (
                                                                     <div className="postedjobs-dropdown" style={{ top: '30px', right: '0' }}>
-                                                                        <button onClick={() => navigate('/Job-portal/Employer/EditJob', { state: job })}>Edit</button>
+                                                                        <button onClick={() => navigate('/Job-portal/Employer/EditJob', { state: job })}>
+                                                                            Edit
+                                                                        </button>
                                                                         <button className="delete-opt">Delete</button>
                                                                     </div>
                                                                 )}
                                                             </div>
                                                         </div>
                                                     </div>
-                                                ))
-                                            ) : (
+                                                );
+                                            })
+                                        ) : (
                                                 <div className="no-jobs-posted">
                                                     <p>No jobs posted yet.</p>
                                                     <button className='post-job-btn' onClick={handlePostaJobClick}>+ Post a Job</button>

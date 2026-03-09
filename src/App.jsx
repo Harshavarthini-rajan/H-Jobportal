@@ -54,11 +54,8 @@ import { PostJobForm } from './Components-Employer/PostJobForm'
 import { PostJobPreview } from './Components-Employer/PostJobPreview'
 import { PostedJobs } from './Components-Employer/PostedJobs'
 import { EditJob } from './Components-Employer/EditJob'
-<<<<<<< HEAD
-=======
-import FindTalent2 from './Components-Employer/Findtalent2'
+// import FindTalent2 from './Components-Employer/Findtalent2'
 import { ProfileCard } from './Components-Employer/ProfileCard'
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 import { JsProfileOverview } from './Components-Employer/JsProfileOverview'
 
 const router = createBrowserRouter([{
@@ -270,15 +267,12 @@ const router = createBrowserRouter([{
   element: <JMessenger/>
 },
 {
-<<<<<<< HEAD
   path: '/Job-portal/Employer/Chat',
-=======
   path: '/Job-portal/employer-chat/:id',
   element: <EMessenger/>
 },
 {
   path: '/Job-portal/employer/chat',
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
   element: <EMessenger/>
 },
 {
@@ -288,16 +282,12 @@ const router = createBrowserRouter([{
 {
   path: '/Job-portal/Employer/FindTalent/ProfileOverview/:id',
   element: <JsProfileOverview/>
-<<<<<<< HEAD
 },
 {
   path: '/Job-portal/employer-chat/:id',
   element: <EMessenger/>
 },
-=======
-}
 
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 ])
 
 function App() {

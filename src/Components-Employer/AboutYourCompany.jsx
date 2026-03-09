@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { JHeader } from "../Components-Jobseeker/JHeader";
 import { Footer } from "../Components-LandingPage/Footer";
+import { EHeader } from "./EHeader";
 import "./AboutYourCompany.css";
 import fileIcon from "../assets/Employer/fileIcon.png"
 import { useNavigate } from "react-router-dom";
 import { useJobs } from "../JobContext";
-
-
 
 export const AboutYourCompany = () => {
 
@@ -27,8 +25,33 @@ export const AboutYourCompany = () => {
         companyLogo: null
     });
 
+    const [errors, setErrors] = useState({});
+
+    const validateForm = () => {
+        const newErrors = {};
+
+        if (!formData.companyName?.trim()) newErrors.companyName = "Company Name is required";
+        if (!formData.companyMoto?.trim()) newErrors.companyMoto = "Company Moto is required";
+        if (!formData.contactPerson?.trim()) newErrors.contactPerson = "Contact Person is required";
+        if (!formData.contactNumber?.trim()) newErrors.contactNumber = "Contact Number is required";
+        if (!formData.companyMail?.trim()) newErrors.companyMail = "Company Mail Id is required";
+        if (!formData.website?.trim()) newErrors.website = "Company Website is required";
+        if (!formData.companySize?.trim()) newErrors.companySize = "Company Size is required";
+        if (!formData.address1?.trim()) newErrors.address1 = "Company Address is required";
+        if (!formData.about?.trim()) newErrors.about = "About Company is required";
+        if (!formData.companyLogo) newErrors.companyLogo = "Company Logo is required";
+
+        setErrors(newErrors);
+        
+        console.log("Validation Errors detected: ", newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
     const handleChange = (e) => {
         const { name, value, files } = e.target;
+        
+        // Clear error when user starts interacting
+        setErrors(prev => ({ ...prev, [name]: "" }));
 
         if (files) {
             const file = files[0];
@@ -58,25 +81,22 @@ export const AboutYourCompany = () => {
         }
     };
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        setCompanyProfile({
-            companyName: formData.companyName,
-            about: formData.about,
-            website: formData.website,
-            companyLogo: formData.companyLogo 
-        });
+        const isValid = validateForm();
+        if (!isValid) {
+            console.log("Form has errors. Stopping navigation.");
+            return;
+        }
 
         console.log("Form Data Ready for Backend:", formData);
-
-        navigate("/Job-portal/Employer/about-your-company/company-verification");
+        navigate('/Job-portal/Employer/about-your-company/company-verification');
     };
 
     return (
-        <div>
-            <JHeader />
+        <>
+            <EHeader />
 
             <div className="aboutcompany-container">
                 <h2 className="aboutcompany-title">About Your Company</h2>
@@ -85,158 +105,199 @@ export const AboutYourCompany = () => {
 
                     <div className="aboutcompany-form-group">
                         <label>Company Name</label>
-                        <input
-                            type="text"
-                            name="companyName"
-                            placeholder="e.g., job portal"
-                            value={formData.companyName}
-                            onChange={handleChange}
-                        />
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                            <input
+                                className={errors.companyName ? "input-error" : ""}
+                                type="text"
+                                name="companyName"
+                                placeholder="e.g., job portal"
+                                value={formData.companyName}
+                                onChange={handleChange}
+                            />
+                            {errors.companyName && <span className="error-msg">{errors.companyName}</span>}
+                        </div>
                     </div>
 
                     <div className="aboutcompany-form-group">
                         <label>Company Moto</label>
-                        <input
-                            type="text"
-                            name="companyMoto"
-                            value={formData.companyMoto}
-                            onChange={handleChange}
-                        />
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                            <input
+                                className={errors.companyMoto ? "input-error" : ""}
+                                type="text"
+                                name="companyMoto"
+                                value={formData.companyMoto}
+                                onChange={handleChange}
+                            />
+                            {errors.companyMoto && <span className="error-msg">{errors.companyMoto}</span>}
+                        </div>
                     </div>
 
                     <div className="aboutcompany-form-group">
                         <label>Contact Person</label>
-                        <input
-                            type="text"
-                            name="contactPerson"
-                            placeholder="e.g., vijay"
-                            value={formData.contactPerson}
-                            onChange={handleChange}
-                        />
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                            <input
+                                className={errors.contactPerson ? "input-error" : ""}
+                                type="text"
+                                name="contactPerson"
+                                placeholder="e.g., vijay"
+                                value={formData.contactPerson}
+                                onChange={handleChange}
+                            />
+                            {errors.contactPerson && <span className="error-msg">{errors.contactPerson}</span>}
+                        </div>
                     </div>
 
                     <div className="aboutcompany-form-group">
                         <label>Contact Number</label>
-                        <input
-                            type="text"
-                            name="contactNumber"
-                            placeholder="e.g., 9145******"
-                            value={formData.contactNumber}
-                            onChange={handleChange}
-                        />
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                            <input
+                                className={errors.contactNumber ? "input-error" : ""}
+                                type="text"
+                                name="contactNumber"
+                                placeholder="e.g., 9145******"
+                                value={formData.contactNumber}
+                                onChange={handleChange}
+                            />
+                            {errors.contactNumber && <span className="error-msg">{errors.contactNumber}</span>}
+                        </div>
                     </div>
 
                     <div className="aboutcompany-form-group">
                         <label>Company Mail Id</label>
-                        <input
-                            type="email"
-                            name="companyMail"
-                            placeholder="e.g., hr@example.com"
-                            value={formData.companyMail}
-                            onChange={handleChange}
-                        />
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                            <input
+                                className={errors.companyMail ? "input-error" : ""}
+                                type="email"
+                                name="companyMail"
+                                placeholder="e.g., hr@example.com"
+                                value={formData.companyMail}
+                                onChange={handleChange}
+                            />
+                            {errors.companyMail && <span className="error-msg">{errors.companyMail}</span>}
+                        </div>
                     </div>
 
                     <div className="aboutcompany-form-group">
                         <label>Company Web Site</label>
-                        <input
-                            type="text"
-                            name="website"
-                            placeholder="e.g., https://example.com"
-                            value={formData.website}
-                            onChange={handleChange}
-                        />
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                            <input
+                                className={errors.website ? "input-error" : ""}
+                                type="text"
+                                name="website"
+                                placeholder="e.g., https://example.com"
+                                value={formData.website}
+                                onChange={handleChange}
+                            />
+                            {errors.website && <span className="error-msg">{errors.website}</span>}
+                        </div>
                     </div>
 
                     <div className="aboutcompany-form-group">
                         <label>Company Logo</label>
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                            <div className={`aboutcompany-file-upload-box ${errors.companyLogo ? "input-error" : ""}`} style={errors.companyLogo ? { borderColor: '#d93025' } : {}}>
 
-                        <div className="aboutcompany-file-upload-box">
+                                {/* Hidden Input */}
+                                <input
+                                    type="file"
+                                    name="companyLogo"
+                                    accept="image/png, image/jpeg, image/jpg, image/webp"
+                                    id="logoUpload"
+                                    onChange={handleChange}
+                                    hidden
+                                />
 
-                            {/* Hidden Input */}
-                            <input
-                                type="file"
-                                name="companyLogo"
-                                accept="image/png, image/jpeg, image/jpg, image/webp"
-                                id="logoUpload"
-                                onChange={handleChange}
-                                hidden
-                            />
-
-                            {/* If No File */}
-                            {!formData.companyLogo && (
-                                <label htmlFor="logoUpload" className="aboutcompany-upload-placeholder">
-                                    Click to Upload Logo
-                                </label>
-                            )}
-
-                            {/* If File Selected */}
-                            {formData.companyLogo && (
-                                <div className="aboutcompany-file-preview">
-
-                                    <label htmlFor="logoUpload" className="aboutcompany-file-left clickable-area">
-                                        <img src={fileIcon} alt="file" />
-
-                                        <div>
-                                            <p>{formData.companyLogo.name}</p>
-                                            <span>
-                                                {(formData.companyLogo.size / 1024 / 1024).toFixed(2)} MB
-                                            </span>
-                                        </div>
+                                {/* If No File */}
+                                {!formData.companyLogo && (
+                                    <label htmlFor="logoUpload" className="aboutcompany-upload-placeholder">
+                                        Click to Upload Logo
                                     </label>
+                                )}
 
-                                </div>
-                            )}
+                                {/* If File Selected */}
+                                {formData.companyLogo && (
+                                    <div className="aboutcompany-file-preview">
 
+                                        <label htmlFor="logoUpload" className="aboutcompany-file-left clickable-area">
+                                            <img src={fileIcon} alt="file" />
+
+                                            <div>
+                                                <p>{formData.companyLogo.name}</p>
+                                                <span>
+                                                    {(formData.companyLogo.size / 1024 / 1024).toFixed(2)} MB
+                                                </span>
+                                            </div>
+                                        </label>
+
+                                    </div>
+                                )}
+
+                            </div>
+                            {errors.companyLogo && <span className="error-msg">{errors.companyLogo}</span>}
                         </div>
                     </div>
 
 
                     <div className="aboutcompany-form-group">
                         <label>Company Size</label>
-                        <input
-                            type="text"
-                            name="companySize"
-                            placeholder="e.g., startup"
-                            value={formData.companySize}
-                            onChange={handleChange}
-                        />
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                            <input
+                                className={errors.companySize ? "input-error" : ""}
+                                type="text"
+                                name="companySize"
+                                placeholder="e.g., startup"
+                                value={formData.companySize}
+                                onChange={handleChange}
+                            />
+                            {errors.companySize && <span className="error-msg">{errors.companySize}</span>}
+                        </div>
                     </div>
 
                     <div className="aboutcompany-form-group">
                         <label>Company Address</label>
-                        <input
-                            type="text"
-                            name="address1"
-                            placeholder="e.g., India"
-                            value={formData.address1}
-                            onChange={handleChange}
-                        />
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                            <input
+                                className={errors.address1 ? "input-error" : ""}
+                                type="text"
+                                name="address1"
+                                placeholder="e.g., India"
+                                value={formData.address1}
+                                onChange={handleChange}
+                            />
+                            {errors.address1 && <span className="error-msg">{errors.address1}</span>}
+                        </div>
                     </div>
 
                     <div className="aboutcompany-form-group">
                         <label>Company Address 2</label>
-                        <input
-                            type="text"
-                            name="address2"
-                            placeholder="e.g., India"
-                            value={formData.address2}
-                            onChange={handleChange}
-                        />
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                            <input
+                                type="text"
+                                name="address2"
+                                placeholder="e.g., India"
+                                value={formData.address2}
+                                onChange={handleChange}
+                            />
+                            {/* Typically optional, no validation error shown here */}
+                        </div>
                     </div>
 
                     <div className="aboutcompany-form-group">
                         <label>About Company</label>
-                        <textarea
-                            rows="5"
-                            name="about"
-                            value={formData.about}
-                            onChange={handleChange}
-                        />
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                            <textarea
+                                className={errors.about ? "input-error" : ""}
+                                rows="5"
+                                name="about"
+                                value={formData.about}
+                                onChange={handleChange}
+                            />
+                            {errors.about && <span className="error-msg">{errors.about}</span>}
+                        </div>
                     </div>
 
                     <div className="aboutcompany-form-buttons">
-                        <button type="button" className="aboutcompany-back-btn">Back</button>
+                        <button type="button" className="aboutcompany-back-btn" onClick={() => navigate(-1)}>Back</button>
                         <button type="submit" className="aboutcompany-next-btn">Next</button>
                     </div>
 
@@ -244,6 +305,6 @@ export const AboutYourCompany = () => {
             </div>
 
             <Footer />
-        </div>
+        </>
     );
 };

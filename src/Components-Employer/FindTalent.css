@@ -7,21 +7,13 @@
   background-color: #f8fafc;
   color: #334155;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 /* --- Search Bar Section --- */
 .FindTalent-search-section {
   text-align: center;
   margin-bottom: 40px;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-search-wrapper {
   display: flex;
   max-width: 700px;
@@ -31,11 +23,7 @@
   padding: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-search-input {
   flex: 1;
   border: none;
@@ -44,11 +32,7 @@
   outline: none;
   color: #1e293b;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-search-button {
   background-color: #2563eb;
   color: white;
@@ -59,40 +43,24 @@
   cursor: pointer;
   transition: background 0.2s;
 }
-<<<<<<< HEAD
  
 .FindTalent-search-button:hover {
   background-color: #1d4ed8;
 }
  
-=======
-
-.FindTalent-search-button:hover {
-  background-color: #1d4ed8;
-}
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-results-title {
   font-size: 22px;
   color: #0f172a;
   font-weight: 700;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 /* --- Main Layout --- */
 .FindTalent-layout-body {
   display: flex;
   gap: 30px;
   align-items: flex-start;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 /* --- Sidebar Styling --- */
 .FindTalent-filters-sidebar {
   width: 280px;
@@ -103,11 +71,7 @@
   position: sticky;
   top: 20px;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-filter-top {
   display: flex;
   justify-content: space-between;
@@ -116,52 +80,32 @@
   padding-bottom: 15px;
   border-bottom: 1px solid #f1f5f9;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-filter-label {
   font-weight: 700;
   font-size: 14px;
   text-transform: uppercase;
   color: #64748b;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-clear-btn {
   color: #2563eb;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
 }
-<<<<<<< HEAD
  
 .FindTalent-filter-category {
   margin-bottom: 25px;
 }
  
-=======
-
-.FindTalent-filter-category {
-  margin-bottom: 25px;
-}
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-filter-category h3 {
   font-size: 15px;
   font-weight: 700;
   margin-bottom: 12px;
   color: #1e293b;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-checkbox-item {
   display: flex;
   align-items: center;
@@ -171,21 +115,13 @@
   color: #475569;
   cursor: pointer;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-checkbox-item input {
   width: 16px;
   height: 16px;
   accent-color: #2563eb;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-view-more-link {
   color: #2563eb;
   font-size: 13px;
@@ -194,20 +130,12 @@
   display: block;
   margin-top: 5px;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 /* --- Talent Card (The Modern Design) --- */
 .FindTalent-talent-list {
   flex: 1;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-talent-card {
   background: white;
   border-radius: 16px;
@@ -217,92 +145,56 @@
   border: 1px solid #f1f5f9;
   transition: transform 0.2s, box-shadow 0.2s;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-talent-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-card-top {
   display: flex;
   justify-content: space-between; /* Parallel Name and Image */
   align-items: flex-start;
   margin-bottom: 20px;
 }
-<<<<<<< HEAD
  
 .FindTalent-info-area {
   flex: 1;
 }
  
-=======
-
-.FindTalent-info-area {
-  flex: 1;
-}
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-info-area h2 {
   font-size: 20px;
   font-weight: 700;
   color: #0f172a;
   margin: 0 0 4px 0;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-info-area h2 small {
   font-weight: 500;
   color: #64748b;
   font-size: 14px;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-meta-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px 20px;
   margin-top: 15px;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-meta-grid span {
   font-size: 13px;
   color: #475569;
   display: flex;
   align-items: center;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 /* Image Parallel to Name */
 .FindTalent-avatar {
   flex-shrink: 0;
   margin-left: 20px;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-avatar img {
   width: 80px;
   height: 80px;
@@ -311,11 +203,7 @@
   border: 2px solid #f1f5f9;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-card-bottom {
   display: flex;
   justify-content: space-between;
@@ -324,31 +212,19 @@
   padding-top: 18px;
   margin-top: 10px;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-timestamp {
   font-size: 12px;
   color: #94a3b8;
   font-style: italic;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 /* Actions */
 .FindTalent-actions {
   display: flex;
   gap: 12px;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-btn-save {
   padding: 8px 18px;
   border: 1px solid #e2e8f0;
@@ -359,20 +235,12 @@
   cursor: pointer;
   color: #475569;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-btn-save:hover {
   background: #f8fafc;
   border-color: #cbd5e1;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-btn-view {
   padding: 8px 18px;
   background: #2563eb;
@@ -383,19 +251,11 @@
   font-size: 13px;
   cursor: pointer;
 }
-<<<<<<< HEAD
  
 .FindTalent-btn-view:hover {
   background: #1d4ed8;
 }
  
-=======
-
-.FindTalent-btn-view:hover {
-  background: #1d4ed8;
-}
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-load-more-btn {
   display: block;
   margin: 30px auto;
@@ -408,11 +268,7 @@
   cursor: pointer;
   transition: all 0.2s;
 }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 .FindTalent-load-more-btn:hover {
   background: #2563eb;
   color: white;

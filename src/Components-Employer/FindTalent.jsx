@@ -205,7 +205,4 @@ export const FindTalent = () => {
     </>
   );
 };
-<<<<<<< HEAD
-=======
 
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb

@@ -20,11 +20,7 @@ export const JobProvider = ({ children }) => {
  
     // Using Id to Toggle Menu in Notification Window
     const [activeMenuId, setActiveMenuId] = useState(null);
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
     const [Alluser, setAlluser] = useState([
         {
             id: "1",
@@ -37,12 +33,8 @@ export const JobProvider = ({ children }) => {
             skills: ["React", "JavaScript", "Tailwind CSS", "Git"],
             languages: [{ "name": "Tamil", "proficiency": "Native" }, { "name": "English", "proficiency": "Fluent" }, { "name": "Malayalam", "proficiency": "Fluent" }],
             certs: [{ "name": "Meta Frontend Certificate", "file": "meta_fe.pdf" }],
-<<<<<<< HEAD
             preferences: [{ "currentCTC": "5 LPA", "expectedCTC": "8 LPA", "jobType": "Hybrid", "role": "Senior Frontend Developer", "ready": "Yes", "relocate": "No" }],
             appliedJobs: [],
-=======
-            preferences: [{ "currentCTC": "5 LPA", "expectedCTC": "8 LPA", "jobType": "Hybrid", "role": "Senior Frontend Developer", "ready": "Yes", "relocate": "No" }]
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
         },
         {
             id: "2",
@@ -55,12 +47,8 @@ export const JobProvider = ({ children }) => {
             skills: ["Python", "SQL", "Tableau", "Excel"],
             languages: [{ "name": "Tamil", "proficiency": "Native" }, { "name": "English", "proficiency": "Professional" }, { "name": "Malayalam", "proficiency": "Fluent" }],
             certs: [{ "name": "Google Data Analytics", "file": "g_data.pdf" }],
-<<<<<<< HEAD
             preferences: [{ "currentCTC": "0", "expectedCTC": "4 LPA", "jobType": "Full-Time", "role": "Junior Data Analyst", "ready": "Yes", "relocate": "Yes" }],
             appliedJobs: [],
-=======
-            preferences: [{ "currentCTC": "0", "expectedCTC": "4 LPA", "jobType": "Full-Time", "role": "Junior Data Analyst", "ready": "Yes", "relocate": "Yes" }]
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
         },
         {
             id: "3",
@@ -73,12 +61,8 @@ export const JobProvider = ({ children }) => {
             skills: ["Node.js", "MongoDB", "AWS", "Docker"],
             languages: [{ "name": "Tamil", "proficiency": "Native" }, { "name": "English", "proficiency": "Fluent" }],
             certs: [{ "name": "AWS Certified Developer", "file": "aws_dev.pdf" }],
-<<<<<<< HEAD
             preferences: [{ "currentCTC": "12 LPA", "expectedCTC": "18 LPA", "jobType": "Remote", "role": "Backend Lead", "ready": "Yes", "relocate": "No" }],
             appliedJobs: [],
-=======
-            preferences: [{ "currentCTC": "12 LPA", "expectedCTC": "18 LPA", "jobType": "Remote", "role": "Backend Lead", "ready": "Yes", "relocate": "No" }]
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
         },
         {
             id: "4",
@@ -91,12 +75,8 @@ export const JobProvider = ({ children }) => {
             skills: ["SEO", "Copywriting", "Canva", "WordPress"],
             languages: [{ "name": "English", "proficiency": "Fluent" }, { "name": "Tamil", "proficiency": "Native" }],
             certs: [{ "name": "HubSpot Content Marketing", "file": "hubspot.pdf" }],
-<<<<<<< HEAD
             preferences: [{ "currentCTC": "3.5 LPA", "expectedCTC": "5 LPA", "jobType": "Full-Time", "role": "Senior Content Strategist", "ready": "Yes", "relocate": "No" }],
             appliedJobs: [],
-=======
-            preferences: [{ "currentCTC": "3.5 LPA", "expectedCTC": "5 LPA", "jobType": "Full-Time", "role": "Senior Content Strategist", "ready": "Yes", "relocate": "No" }]
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
         },
         {
             id: "5",
@@ -109,12 +89,8 @@ export const JobProvider = ({ children }) => {
             skills: ["Kubernetes", "Jenkins", "Terraform", "Linux"],
             languages: [{ "name": "Tamil", "proficiency": "Native" }, { "name": "English", "proficiency": "Fluent" }, { "name": "Telugu", "proficiency": "Basic" }],
             certs: [{ "name": "CKA Certification", "file": "cka.pdf" }],
-<<<<<<< HEAD
             preferences: [{ "currentCTC": "9 LPA", "expectedCTC": "13 LPA", "jobType": "Full-Time", "role": "DevOps Architect", "ready": "Yes", "relocate": "Yes" }],
             appliedJobs: [],
-=======
-            preferences: [{ "currentCTC": "9 LPA", "expectedCTC": "13 LPA", "jobType": "Full-Time", "role": "DevOps Architect", "ready": "Yes", "relocate": "Yes" }]
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
         },
         {
             id: "6",
@@ -127,20 +103,12 @@ export const JobProvider = ({ children }) => {
             skills: ["Agile", "Jira", "Market Research", "Product Strategy"],
             languages: [{ "name": "English", "proficiency": "Fluent" }, { "name": "Tamil", "proficiency": "Fluent" }, { "name": "Kannada", "proficiency": "Basic" }],
             certs: [{ "name": "CSPO", "file": "cspo.pdf" }],
-<<<<<<< HEAD
             preferences: [{ "currentCTC": "22 LPA", "expectedCTC": "28 LPA", "jobType": "Full-Time", "role": "Senior PM", "ready": "Yes", "relocate": "No" }],
             appliedJobs: [],
         },
         {
             id: "7",
  
-=======
-            preferences: [{ "currentCTC": "22 LPA", "expectedCTC": "28 LPA", "jobType": "Full-Time", "role": "Senior PM", "ready": "Yes", "relocate": "No" }]
-        },
-        {
-            id: "7",
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
             profile: { "fullName": "Arul Varman", "gender": "Male", "dob": "2002-01-20", "maritalStatus": "Single", "nationality": "Indian" },
             currentDetails: { "jobTitle": "QA Automation Engineer", "company": "TestX", experience: "Fresher", "currentLocation": "Chennai", "prefLocation": "Chennai" },
             contact: { "mobile": "+91 8080808080", "altMobile": "", "email": "Sudhakar.qa@email.com", "altEmail": "", "address": "T Nagar", "street": "Burkit Rd", "city": "Chennai", "state": "Tamil Nadu", "pincode": "600017", "country": "India" },
@@ -150,12 +118,8 @@ export const JobProvider = ({ children }) => {
             skills: ["Selenium", "Java", "Manual Testing", "Python"],
             languages: [{ "name": "Tamil", "proficiency": "Native" }, { "name": "English", "proficiency": "Fluent" }],
             certs: [{ "name": "ISTQB Foundation", "file": "istqb.pdf" }],
-<<<<<<< HEAD
             preferences: [{ "currentCTC": "0", "expectedCTC": "4.5 LPA", "jobType": "Full-Time", "role": "QA Engineer", "ready": "Yes", "relocate": "No" }],
             appliedJobs: [],
-=======
-            preferences: [{ "currentCTC": "0", "expectedCTC": "4.5 LPA", "jobType": "Full-Time", "role": "QA Engineer", "ready": "Yes", "relocate": "No" }]
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
         },
         {
             id: "8",
@@ -168,12 +132,8 @@ export const JobProvider = ({ children }) => {
             skills: ["React", "Node.js", "Express", "PostgreSQL"],
             languages: [{ "name": "Tamil", "proficiency": "Native" }, { "name": "English", "proficiency": "Fluent" }],
             certs: [{ "name": "MERN Stack Mastery", "file": "mern.pdf" }],
-<<<<<<< HEAD
             preferences: [{ "currentCTC": "7.5 LPA", "expectedCTC": "12 LPA", "jobType": "Remote", "role": "Senior Full Stack Developer", "ready": "Yes", "relocate": "No" }],
             appliedJobs: [],
-=======
-            preferences: [{ "currentCTC": "7.5 LPA", "expectedCTC": "12 LPA", "jobType": "Remote", "role": "Senior Full Stack Developer", "ready": "Yes", "relocate": "No" }]
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
         },
         {
             id: "9",
@@ -186,12 +146,8 @@ export const JobProvider = ({ children }) => {
             skills: ["Metasploit", "Ethical Hacking", "Python", "SOC"],
             languages: [{ "name": "English", "proficiency": "Fluent" }, { "name": "Tamil", "proficiency": "Native" }, { "name": "Hindi", "proficiency": "Conversational" }],
             certs: [{ "name": "CEH", "file": "ceh.pdf" }],
-<<<<<<< HEAD
             preferences: [{ "currentCTC": "18 LPA", "expectedCTC": "25 LPA", "jobType": "Full-Time", "role": "Security Manager", "ready": "Yes", "relocate": "No" }],
             appliedJobs: [],
-=======
-            preferences: [{ "currentCTC": "18 LPA", "expectedCTC": "25 LPA", "jobType": "Full-Time", "role": "Security Manager", "ready": "Yes", "relocate": "No" }]
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
         },
         {
             id: "10",
@@ -204,7 +160,6 @@ export const JobProvider = ({ children }) => {
             skills: ["Recruitment", "Employee Engagement", "Payroll", "MS Office"],
             languages: [{ "name": "Tamil", "proficiency": "Native" }, { "name": "English", "proficiency": "Fluent" }],
             certs: [{ "name": "SHRM Certified", "file": "shrm.pdf" }],
-<<<<<<< HEAD
             preferences: [{ "currentCTC": "6 LPA", "expectedCTC": "9 LPA", "jobType": "Full-Time", "role": "HR Manager", "ready": "Yes", "relocate": "No" }],
             appliedJobs: [],
         },
@@ -217,25 +172,11 @@ export const JobProvider = ({ children }) => {
     );
  
  
-=======
-            preferences: [{ "currentCTC": "6 LPA", "expectedCTC": "9 LPA", "jobType": "Full-Time", "role": "HR Manager", "ready": "Yes", "relocate": "No" }]
-        },
-    ]
-
-
-    )
-
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
     // Chats/messages between Employer and Jobseeker 1:1;
     const [chats, setChats] = useState([
     // Employer-ah manual-ah first-la vachupom
     { id: 0, name: "Sudhakar", role: "employer", messages: [] },
-<<<<<<< HEAD
    
-=======
-    
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
     // Alluser array-la irukura ellarukum automatic-ah create aagum
     ...Alluser.map(user => ({
         id: parseInt(user.id),
@@ -244,15 +185,9 @@ export const JobProvider = ({ children }) => {
         messages: []
     }))
 ]);
-<<<<<<< HEAD
  
    
  
-=======
-
-    
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
     // Profile List from my profile
     const [allData, setAllData] = useState({
         profile: { fullName: '', gender: 'Select', dob: '', maritalStatus: 'Select', nationality: '' },
@@ -266,11 +201,7 @@ export const JobProvider = ({ children }) => {
         certs: [{ name: "Full-Stack Development", file: "cert1.pdf" }, { name: "UI/UX Design", file: "cert2.pdf" }],
         preferences: [{ currentCTC: '', expectedCTC: '', jobType: 'Select', role: '', ready: '', relocate: '' }]
     });
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
     const postJob = (newJobData) => {
         const newJob = {
             ...newJobData,
@@ -286,11 +217,7 @@ export const JobProvider = ({ children }) => {
         setJobs((prev) =>
             prev.map((job) => (job.id === jobId ? { ...job, ...updatedData } : job))
         );
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
         // Also update saved jobs if the edited job was saved
         setSavedJobs((prev) =>
             prev.map((job) => (job.id === jobId ? { ...job, ...updatedData } : job))
@@ -307,40 +234,23 @@ export const JobProvider = ({ children }) => {
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         isRead: false,
     }]);
-<<<<<<< HEAD
  
     // New Messages Notification Logic
     const [showNotification, setShowNotification] = useState(false);
  
     // to add NewNotification in NotificationData
-=======
-
-    // New Messages Notification Logic
-    const [showNotification, setShowNotification] = useState(false);
-
-    // to add NewNotification in NotificationData 
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
     const addNotification = (text, targetId = null) => {
     const newNotif = {
         id: Date.now(),
         text: text,
-<<<<<<< HEAD
         targetId: targetId,
-=======
-        targetId: targetId, 
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         isRead: false
     };
     setNotificationsData(prev => [newNotif, ...prev]);
 };
-<<<<<<< HEAD
  
  
-=======
-
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
     const getFormattedDate = () => {
         return new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
     };
@@ -425,17 +335,12 @@ const applyForJob = (originalJob) => {
         addNotification("Job posting has been successfully deleted.");
     };
     const [activeSidebarUsers, setActiveSidebarUsers] = useState([]);
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
 const addChatToSidebar = (userId) => {
   if (!activeSidebarUsers.includes(parseInt(userId))) {
     setActiveSidebarUsers(prev => [...prev, parseInt(userId)]);
   }
 };
-<<<<<<< HEAD
 const updateApplicantStatus = (userId, jobId, newStatus) => {
   setAlluser(prev => prev.map(user => {
     if (user.id === userId) {
@@ -447,21 +352,13 @@ const updateApplicantStatus = (userId, jobId, newStatus) => {
     return user;
   }));
 };
-=======
-
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
     return (
         <JobContext.Provider value={{
             jobs, appliedJobs, setAppliedJobs, savedJobs, chats, setChats, setJobs,
             onlineStatus, setOnlineStatus, isJobSaved, isChatEnded, setIsChatEnded,
             setNotificationsData, addNotification, toggleSaveJob, applyForJob, notificationsData, showNotification, setShowNotification,
-<<<<<<< HEAD
             activeMenuId, setActiveMenuId, addJob, deleteJob, allData, setAllData, postJob, editJob, Alluser,setAlluser,activeSidebarUsers,
             addChatToSidebar,updateApplicantStatus,currentUser, setCurrentUser
-=======
-            activeMenuId, setActiveMenuId, addJob, deleteJob, allData, setAllData, postJob, editJob, Alluser,setAlluser,activeSidebarUsers, 
-            addChatToSidebar
->>>>>>> 05e6efb2d81f4bab7aab2ddeecd0689a11b8efbb
         }}>
             {children}
         </JobContext.Provider>
