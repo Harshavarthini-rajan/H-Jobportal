@@ -94,6 +94,35 @@ export const AboutYourCompany = ({ hideNavigation = false, setActiveTab  }) => {
         navigate('/Job-portal/Employer/about-your-company/company-verification');
     };
 
+    const handleSave = (e) => {
+        e.preventDefault();
+
+        const isValid = validateForm();
+        if (!isValid) {
+            console.log("Form has errors. Stopping to save.");
+            return;
+        }
+
+        console.log("Saving Company Profile:", formData);
+        setCompanyProfile(formData);
+        setActiveTab("Dashboard");
+    };
+
+    const handleNext = (e) => {
+    e.preventDefault();
+
+        const isValid = validateForm();
+        if (!isValid) {
+            console.log("Form has errors. Stopping navigation.");
+            return;
+        }
+
+        console.log("Form Data Ready for Backend:", formData);
+
+        setCompanyProfile(formData);
+        navigate('/Job-portal/Employer/about-your-company/company-verification');
+    };
+
     return (
         <>
             {!hideNavigation && <EHeader />}
@@ -300,13 +329,13 @@ export const AboutYourCompany = ({ hideNavigation = false, setActiveTab  }) => {
                     <div className="aboutcompany-form-buttons">
                         <button type="button" className="aboutcompany-back-btn"
                         onClick={() => navigate(-1)}>Back</button>
-                        <button type="submit" className="aboutcompany-next-btn"> Next </button>
+                        <button type="button" className="aboutcompany-next-btn"onClick={handleNext}>Next</button>
                     </div>)}
 
                     {hideNavigation && (
                     <div>
-                        <button type="submit" className="aboutcompany-save-btn" 
-                        onClick={() => setActiveTab("Dashboard")}> Save </button>
+                        <button type="button" className="aboutcompany-save-btn"
+                        onClick={handleSave}> Save </button>
                     </div>)}
 
                 </form>
