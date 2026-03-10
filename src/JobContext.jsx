@@ -186,7 +186,7 @@ export const JobProvider = ({ children }) => {
     }))
 ]);
  
-   
+    const [companyProfile, setCompanyProfile] = useState([]);
  
     // Profile List from my profile
     const [allData, setAllData] = useState({
@@ -358,7 +358,7 @@ const updateApplicantStatus = (userId, jobId, newStatus) => {
             onlineStatus, setOnlineStatus, isJobSaved, isChatEnded, setIsChatEnded,
             setNotificationsData, addNotification, toggleSaveJob, applyForJob, notificationsData, showNotification, setShowNotification,
             activeMenuId, setActiveMenuId, addJob, deleteJob, allData, setAllData, postJob, editJob, Alluser,setAlluser,activeSidebarUsers,
-            addChatToSidebar,updateApplicantStatus,currentUser, setCurrentUser
+            addChatToSidebar,updateApplicantStatus,currentUser, setCurrentUser, setCompanyProfile
         }}>
             {children}
         </JobContext.Provider>
