@@ -20,6 +20,8 @@ export const JobProvider = ({ children }) => {
  
     // Using Id to Toggle Menu in Notification Window
     const [activeMenuId, setActiveMenuId] = useState(null);
+
+    const [companyProfile, setCompanyProfile] = useState([]);
  
     const [Alluser, setAlluser] = useState([
         {
@@ -185,8 +187,6 @@ export const JobProvider = ({ children }) => {
         messages: []
     }))
 ]);
- 
-    const [companyProfile, setCompanyProfile] = useState([]);
  
     // Profile List from my profile
     const [allData, setAllData] = useState({
