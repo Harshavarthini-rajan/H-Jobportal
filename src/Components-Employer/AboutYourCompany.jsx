@@ -6,7 +6,7 @@ import fileIcon from "../assets/Employer/fileIcon.png"
 import { useNavigate } from "react-router-dom";
 import { useJobs } from "../JobContext";
 
-export const AboutYourCompany = () => {
+export const AboutYourCompany = ({ hideNavigation = false, setActiveTab  }) => {
 
     const navigate = useNavigate();
     const { setCompanyProfile } = useJobs();
@@ -96,7 +96,7 @@ export const AboutYourCompany = () => {
 
     return (
         <>
-            <EHeader />
+            {!hideNavigation && <EHeader />}
 
             <div className="aboutcompany-container">
                 <h2 className="aboutcompany-title">About Your Company</h2>
@@ -296,15 +296,23 @@ export const AboutYourCompany = () => {
                         </div>
                     </div>
 
+                    {!hideNavigation && (
                     <div className="aboutcompany-form-buttons">
-                        <button type="button" className="aboutcompany-back-btn" onClick={() => navigate(-1)}>Back</button>
-                        <button type="submit" className="aboutcompany-next-btn">Next</button>
-                    </div>
+                        <button type="button" className="aboutcompany-back-btn"
+                        onClick={() => navigate(-1)}>Back</button>
+                        <button type="submit" className="aboutcompany-next-btn"> Next </button>
+                    </div>)}
+
+                    {hideNavigation && (
+                    <div>
+                        <button type="submit" className="aboutcompany-save-btn" 
+                        onClick={() => setActiveTab("Dashboard")}> Save </button>
+                    </div>)}
 
                 </form>
             </div>
 
-            <Footer />
+            {!hideNavigation && <Footer />}
         </>
     );
 };

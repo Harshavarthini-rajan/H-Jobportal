@@ -24,6 +24,7 @@ import { PostedJobs } from './PostedJobs'
 import { ViewApplicants } from './ViewApplicants'
 import { useJobs } from '../JobContext'
 import { FindTalent } from './FindTalent'
+import { AboutYourCompany } from './AboutYourCompany'
 
 
 export const EmployerDashboard = () => {
@@ -382,17 +383,17 @@ export const EmployerDashboard = () => {
                         />
                     )}
                     {activetab === 'Find a Talent' && (
-                        <>
-                            <FindTalent />
-                        </>)}
+                        <><FindTalent /> </>)}
                     {activetab === 'Analytics' && (
                         <h1>Analytics</h1>)}
                     {activetab === 'Billing' && (
                         <h1>Interview Section</h1>)}
                     {activetab === 'My Profile' && (
-                        <h1>My Profile Section</h1>)}
+                        <AboutYourCompany hideNavigation={true}
+                        setActiveTab={setActiveTab} />)}
                     {activetab === 'Logout' && (
-                        <h1>Logout Section</h1>)}
+                        navigate('/Job-portal')
+                    )}
 
                 </div>
 
