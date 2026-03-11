@@ -102,7 +102,7 @@ export const FindTalent = () => {
             <div className="FindTalent-filter-top">
               <span className="FindTalent-filter-label">Apply filters</span>
               <span className="FindTalent-clear-btn" onClick={() => {
-                setSelectedWorkTypes([]); setSelectedLanguages([]); setSelectedEdu([]); setSelectedSkills([]); setMaxExp(10); setSearchTerm('');
+                 setSelectedLanguages([]); setSelectedEdu([]); setSelectedSkills([]); setMaxExp(10); setSearchTerm('');
               }}>Clear filter</span>
             </div>
 
@@ -205,4 +205,3 @@ export const FindTalent = () => {
     </>
   );
 };
-
