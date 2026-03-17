@@ -55,68 +55,68 @@ import { PostJobPreview } from './Components-Employer/PostJobPreview'
 import { PostedJobs } from './Components-Employer/PostedJobs'
 import { EditJob } from './Components-Employer/EditJob'
 // import FindTalent2 from './Components-Employer/Findtalent2'
-import { ProfileCard } from './Components-Employer/ProfileCard'
+//import { ProfileCard } from './Components-Employer/ProfileCard'
 import { JsProfileOverview } from './Components-Employer/JsProfileOverview'
 
 const router = createBrowserRouter([{
   path: '/',
-  element: <Landingpage />,
+  element: <Landingpage />
 }, 
 {
   path: '/Job-portal',
-  element: <Landingpage />,
+  element: <Landingpage />
 },
 {
   path: '/Job-portal/jobseeker/login',
-  element: <Jlogin />,
+  element: <Jlogin />
 },
 {
   path: '/Job-portal/jobseeker/login/forgotpassword',
-  element: <Jforgotpassword />,
+  element: <Jforgotpassword />
 },
 {
   path: '/Job-portal/jobseeker/signup',
-  element: <Jsignup />,
+  element: <Jsignup />
 },
 {
   path: '/Job-portal/jobseeker/login/forgotpassword/createpassword',
-  element: <Jcreatepassword />,
+  element: <Jcreatepassword />
 },
 {
   path: '/Job-portal/jobseeker/',
-  element: <Afterloginlanding />,
+  element: <Afterloginlanding />
 },
 {
   path: '/Job-portal/employer/login',
-  element: <Elogin />,
+  element: <Elogin />
 },
 {
   path: '/Job-portal/employer/signup',
-  element: <Esignup />,
+  element: <Esignup />
 },
 {
   path: '/Job-portal/employer/login/forgotpassword',
-  element: <Eforgotpassword />,
+  element: <Eforgotpassword />
 },
 {
   path: '/Job-portal/employer/login/forgotpassword/createpassword',
-  element: <Ecreatepassword />,
+  element: <Ecreatepassword />
 },
 {
   path: '/Job-portal/jobseeker/OpportunityOverview/:id',
-  element: <OpportunityOverview />,
+  element: <OpportunityOverview />
 },
 {
   path: '/Job-portal/jobseeker/myjobs',
-  element: <MyJobs />,
+  element: <MyJobs />
 },
 {
   path: '/Job-portal/jobseeker/jobs',
-  element: <JobsTab />,
+  element: <JobsTab />
 },
 {
   path: '/Job-portal/jobseeker/companies',
-  element: <CompaniesTab />,
+  element: <CompaniesTab />
 },
 {
   path: '/Job-portal/jobseeker/myprofile',

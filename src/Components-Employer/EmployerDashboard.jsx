@@ -25,6 +25,7 @@ import { ViewApplicants } from './ViewApplicants'
 import { useJobs } from '../JobContext'
 import { FindTalent } from './FindTalent'
 import { AboutYourCompany } from './AboutYourCompany'
+import { Analytics } from './Analytics'
 
 
 export const EmployerDashboard = () => {
@@ -385,7 +386,7 @@ export const EmployerDashboard = () => {
                     {activetab === 'Find a Talent' && (
                         <><FindTalent /> </>)}
                     {activetab === 'Analytics' && (
-                        <h1>Analytics</h1>)}
+                        <><Analytics /> </>)}
                     {activetab === 'Billing' && (
                         <h1>Interview Section</h1>)}
                     {activetab === 'My Profile' && (
