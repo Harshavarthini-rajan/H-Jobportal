@@ -12,16 +12,17 @@ export const JNotification = ({  }) => {
     
     const {notificationsData,setNotificationsData,showNotification, setShowNotification,activeMenuId,setActiveMenuId}   = useJobs()
 
-    // const [notifications, setNotifications] = useState(notificationsData);
+    
     const navigate = useNavigate();
     const containerRef = useRef(null);
-    const CurrentUser = 1;
+    const CurrentUser = 2;
 
     const myPersonalNotifs = notificationsData.filter(n => 
         n.targetId === CurrentUser || n.targetId === undefined || n.targetId === null
     );
 
     const newNotificationsCount = myPersonalNotifs.filter(n => !n.isRead).length;
+    console.log(newNotificationsCount)
 
     // Toggle 3-dot menu
     const toggleMenu = (id, event) => {
@@ -106,7 +107,7 @@ export const JNotification = ({  }) => {
             <div className="notifications-subheader">
                 <div>
                     <span>Stay Up to Date</span>
-                    {myPersonalNotifs > 0 && (
+                    {newNotificationsCount > 0 && (
                         <span className="new-notifications-count">
                             {newNotificationsCount} New Notifications
                         </span>
